@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Subject List</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <table class="table" id="tableSubject">
+        <thead>
+        <tr>
+
+            <th>Name</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th>Sem</th>
+        </tr>
+        </thead>
+
+<!--        <tr th:each="subject: ${list}">-->
+<!--            <td th:text="${subject.getName()}"></td>-->
+<!--            <td th:text="${subject.getDescription()}"></td>-->
+<!--            <td th:text="${subject.getDuration()}"></td>-->
+<!--            <td th:text="${subject.getSem()}"></td>-->
+<!--            <td></td>-->
+<!--        </tr>-->
+    </table>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $("#tableSubject").DataTable({
+                "ajax" : '../subject/lsSubject',
+                columns:[
+                    {data: "name"},
+                    {data: "description"},
+                    {data: "duration"},
+                    {data: "sem"}
+                ]
+            });
+        })
+    </script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+</body>
+</html>
